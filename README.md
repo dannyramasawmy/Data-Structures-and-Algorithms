@@ -1,11 +1,11 @@
 # Data Structures and Algorithms
 
-Implementations of core data structures and algorithms.
+Implementations of core data structures and algorithms with a few other programming challenges.
 
-## Algorithms 
+- Data Structures 
+    - linked-list
+    - stack
+
 - permutations
 
-## Data Structures 
-- linked-list
-- stack
 
