@@ -71,6 +71,39 @@ class LinkedList():
             counter += 1
         return None
 
+    def delete(self, index):
+        """
+        delete - delete node at a specified index
+        """
+        # get the node
+        node = self[index]
+        self.length -= 1
+        # end / front of list
+        if node.next == None:
+            if index > 0:
+                node = self[index-1]
+                node.next = None
+            else:
+                self.head = None
+        # general case
+        else:
+            node.value = node.next.value
+            node.next = node.next.next
+
+    def pop(self, index='end'):
+        """
+        pop - returns node breaks pointer, removes item from the list
+        """
+        if index == 'end':
+            index = self.length - 1
+            # 0 length list
+            if index < 0:
+                return None
+        # make a copy
+        returnNode = Node(self[index].value)
+        self.delete(index)
+        return returnNode
+
     def reverse(self):
         """
         reverse - reverses the linked list
@@ -244,6 +277,51 @@ def testReverseList():
         return False
 
 
+def testDeleteItems():
+    try:
+        myList = LinkedList.toLinkedList([0, 1, 2, 3, 4, 5])
+        assert f'{myList}' == f'{LinkedList.toLinkedList([0,1,2,3,4,5])}'
+        myList.delete(5)
+        assert f'{myList}' == f'{LinkedList.toLinkedList([0,1,2,3,4])}'
+        myList.delete(0)
+        assert f'{myList}' == f'{LinkedList.toLinkedList([1,2,3,4])}'
+        myList.delete(2)
+        assert f'{myList}' == f'{LinkedList.toLinkedList([1,2,4])}'
+        myList.delete(2)
+        myList.delete(0)
+        assert f'{myList}' == f'{LinkedList.toLinkedList([2])}'
+        myList.delete(0)
+        assert f'{myList}' == f'{LinkedList.toLinkedList([])}'
+
+        return True
+    except:
+        return False
+
+
+def testPop():
+    try:
+        myList = LinkedList.toLinkedList([0, 1, 2, 3, 4, 5])
+        assert f'{myList}' == f'{LinkedList.toLinkedList([0,1,2,3,4,5])}'
+        assert f'{myList.pop(5)}' == f'{Node(5)}'
+        assert f'{myList}' == f'{LinkedList.toLinkedList([0,1,2,3,4])}'
+        assert f'{myList.pop(0)}' == f'{Node(0)}'
+        assert f'{myList}' == f'{LinkedList.toLinkedList([1,2,3,4])}'
+        assert f'{myList.pop(2)}' == f'{Node(3)}'
+        assert f'{myList}' == f'{LinkedList.toLinkedList([1,2,4])}'
+        assert f'{myList.pop()}' == f'{Node(4)}'
+        assert f'{myList}' == f'{LinkedList.toLinkedList([1,2])}'
+        assert f'{myList.pop()}' == f'{Node(2)}'
+        assert f'{myList}' == f'{LinkedList.toLinkedList([1])}'
+        assert f'{myList.pop()}' == f'{Node(1)}'
+        assert f'{myList}' == f'{LinkedList.toLinkedList([])}'
+        assert f'{myList.pop()}' == f'{None}'
+        assert f'{myList}' == f'{LinkedList.toLinkedList([])}'
+
+        return True
+    except:
+        return False
+
+
 def test(func, name):
     if func:
         print(f'Test {name} : Pass')
@@ -257,11 +335,14 @@ def test(func, name):
 if __name__ == "__main__":
     # test node
     print(10*'--')
-    test(testNode(), 'node class')
-    test(testAddHead(), 'add at head')
-    test(testAddTail(), 'add at tail')
-    test(testGetItem(), 'get the item')
-    test(testFind(), 'find a node')
+
+    test(testNode(),        'node class')
+    test(testAddHead(),     'add at head')
+    test(testAddTail(),     'add at tail')
+    test(testGetItem(),     'get the item')
+    test(testFind(),        'find a node')
     test(testListConvert(), 'convert list to linked list')
     test(testReverseList(), 'reverse list')
+    test(testDeleteItems(), 'delete item in list')
+    test(testPop(),         'pop item from list')
     print(10*'--')
