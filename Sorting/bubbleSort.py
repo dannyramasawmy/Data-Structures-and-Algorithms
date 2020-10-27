@@ -5,15 +5,17 @@ def bubbleSort(items):
         items[firstIndex] = items[secondIndex]
         items[secondIndex] = temp
 
-    length = len(items)
-
-    for i in range(length):
-        j = 0
-        stop = length - i
-        while j < stop - 1:
-            if items[j] > items[j + 1]:
-                swap(j, j + 1)
-            j += 1
+    # loop for each element
+    for idx in range(len(items)):
+        jdx = 0
+        stop = len(items) - idx
+        while jdx < stop - 1:
+            # swap if larger
+            if items[jdx] > items[jdx + 1]:
+                swap(jdx, jdx + 1)
+            jdx += 1
     return items
 
+a = [3,2,5,1,8,3,9,23,5,12,42,9,7,0,-3,-2,4,-4]
+print(bubbleSort(a))
 
