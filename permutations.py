@@ -1,9 +1,6 @@
 import math
 import sys
 
-# sys.path.append("C:\\Users\\Danny Ramasawmy\\Google Drive\\Projects\\Data-Structures-and-Algorithms")
-# from DataStructures.LinkedList import LinkedList
-
 
 def strPermute(s, myset, l=''):
     """
@@ -20,6 +17,5 @@ def strPermute(s, myset, l=''):
 mystring = '1234'
 myset = set()
 strPermute(mystring, myset)
-
 
 

@@ -6,6 +6,11 @@ Implementations of core data structures and algorithms with a few other programm
     - linked-list
     - stack
 
+- Sorting
+    - bubble-sort
+    - merge-sort
+    - quick-sort
+
 - permutations
 
 
