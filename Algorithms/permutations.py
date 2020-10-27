@@ -1,5 +1,6 @@
 import math
 
+
 def strPermute(s, myset, l=''):
     """
     Print permutations.
@@ -15,4 +16,5 @@ def strPermute(s, myset, l=''):
 mystring = '1234'
 myset = set()
 strPermute(mystring, myset)
+
 

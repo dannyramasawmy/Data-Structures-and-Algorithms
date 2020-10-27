@@ -175,9 +175,8 @@ def test(func, name):
 #   MAIN PROGRAM
 # ===========================================================
 if __name__ == "__main__":
-    # test node
-    print(10*'--')
 
+    print(10*'--')
     test(testNode(),        'node class')
     test(testAddHead(),     'add at head')
     test(testAddTail(),     'add at tail')

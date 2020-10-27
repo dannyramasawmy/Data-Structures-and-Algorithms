@@ -7,4 +7,5 @@ Implementations of core data structures and algorithms.
 
 ## Data Structures 
 - linked-list
+- stack
 
