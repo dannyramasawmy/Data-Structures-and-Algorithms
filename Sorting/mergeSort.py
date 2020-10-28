@@ -1,49 +1,11 @@
-def mergeSort(sequence):
-    def merge(sequence, left, middle, right):
-
-        result = []
-
-        i = left
-        j = middle
-        while i < middle and j < right:
-            if sequence[i] < sequence[j]:
-                result.append(sequence[i])
-                i += 1
-            else:
-                result.append(sequence[j])
-                j += 1
-
-        while i < middle:
-            result.append(sequence[i])
-            i += 1
-
-        while j < right:
-            result.append(sequence[j])
-            j += 1
-
-        for i in range(left, right):
-            sequence[i] = result[i - left]
-
-    def split(sequence, left, right):
-        middle = (left + right) // 2
-
-        if left == middle: return
-        split(sequence, left, middle)
-        split(sequence, middle, right)
-        merge(sequence, left, middle, right)
-
-    split(sequence, 0, len(sequence))
-
-    return sequence
-
-
-sequence = [3, 6, 1, 5, 3, 6]
-print(f'Merge {mergeSort(sequence)}')
-
-
 # a nicer implementation
-def mergeSort2(array):
-    """If length == 1"""
+def mergeSort(array):
+    """
+    mergesort
+    O(n log n) - time complexity
+    O(n) - space complexity
+    """
+    # base case
     if len(array) <= 1:
         return array
 
@@ -51,13 +13,13 @@ def mergeSort2(array):
     midpoint = len(array)//2
 
     # split left and right half of array call recursively
-    left = mergeSort2(array[:midpoint])
+    left = mergeSort(array[:midpoint])
     right = mergeSort(array[midpoint:])
-
     return merge(left, right)
 
+
 def merge(left, right):
-    """Merge two sub arrays"""
+    """Merge two sorted arrays"""
 
     result = []
     leftPointer = rightPointer = 0
@@ -79,6 +41,6 @@ def merge(left, right):
     return result
 
 
-sequence = [3, 6, 1, 5, 3, 6]
-print(f'Merge2 {mergeSort2(sequence)}')
+sequence = [3, 6, 1, 5, 3, 6,4, 234, 0, -4, -45, 8, 29, 1, 93, 4.5]
+print(f'Merge-sort {mergeSort(sequence)}')
 

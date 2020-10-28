@@ -1,9 +1,9 @@
 def bubbleSort(items):
-    """Bubble sort"""
-    def swap(firstIndex, secondIndex):
-        temp = items[firstIndex]
-        items[firstIndex] = items[secondIndex]
-        items[secondIndex] = temp
+    """ 
+    Bubble sort
+    O(n**2) - time
+    O(1) - memory, in place
+    """
 
     # loop for each element
     for idx in range(len(items)):
@@ -12,7 +12,7 @@ def bubbleSort(items):
         while jdx < stop - 1:
             # swap if larger
             if items[jdx] > items[jdx + 1]:
-                swap(jdx, jdx + 1)
+                items[jdx], items[jdx+1] = items[jdx+1], items[jdx]
             jdx += 1
     return items
 
