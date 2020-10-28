@@ -5,6 +5,7 @@ Implementations of core data structures and algorithms with a few other programm
 - Data Structures 
     - linked-list
     - stack
+    - queue
 
 - Sorting
     - bubble-sort
