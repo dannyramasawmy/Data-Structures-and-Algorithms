@@ -11,9 +11,9 @@ def spiral(n: int) -> list:
         list: [2D N x N]
     """
     # initialise
-    mat = [[0 for _ in range(n)] for _ in range (n)]
+    mat = [[0 for _ in range(n)] for _ in range(n)]
 
-    # max 
+    # max
     lm1 = len(mat[0]) - 1
     num = 0
 
@@ -32,7 +32,7 @@ def spiral(n: int) -> list:
                 elif side == 2:
                     mat[lm1 - ldx][lm1 - edx] = num
                 else:
-                    mat[lm1 - edx][0 + ldx] = num    
+                    mat[lm1 - edx][0 + ldx] = num
 
     # center elem
     if n % 2 == 1:
@@ -40,9 +40,10 @@ def spiral(n: int) -> list:
 
     return mat
 
+
 def printMat(mat):
     for row in mat:
-        print(', '.join( [str(elem) for elem in row] ))
+        print(', '.join([str(elem) for elem in row]))
     return None
 
 
@@ -55,7 +56,8 @@ def comparison(dimension: int, compare: list, func: "function") -> int:
         func (function): [rotating function]
     """
     try:
-        assert func(dimension) == compare, f"Error: for {func}, arrays are not equal."
+        assert func(
+            dimension) == compare, f"Error: for {func}, arrays are not equal."
         print(f'Pass.')
         return 1
     except:
@@ -75,14 +77,14 @@ if __name__ == "__main__":
     out2 = [[1,  2,  3,  4],
             [12, 13, 14, 5],
             [11, 16, 15, 6],
-            [10, 9,  8,  7]] 
+            [10, 9,  8,  7]]
 
-    out3 = [[1,  2,  3,  4,  5 ],
-            [16, 17, 18, 19, 6 ],
-            [15, 24, 25, 20, 7 ],
-            [14, 23, 22, 21, 8 ],
-            [13, 12, 11, 10, 9 ]]
- 
+    out3 = [[1,  2,  3,  4,  5],
+            [16, 17, 18, 19, 6],
+            [15, 24, 25, 20, 7],
+            [14, 23, 22, 21, 8],
+            [13, 12, 11, 10, 9]]
+
     # comparison
     counter = 0
     total = 0
