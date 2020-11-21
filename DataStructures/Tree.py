@@ -28,6 +28,7 @@ class Heap():
         Initialise heap
         """
         self.array = []
+        self.head = None
 
     def getParentIndex(self, index):
         """
