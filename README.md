@@ -4,7 +4,6 @@ Implementations of core data structures and algorithms with a few other programm
 
 ``` bash
 .
-.
 ├── Algorithms
 │   ├── permutations.py
 │   ├── reshapeMatrix.py
