@@ -16,4 +16,4 @@ def printGraph(identifier : dict) -> None:
 
 names = ['A', 'B', 'D', 'E', 'Ma', 'Mi', 'Mo', 'Sa']
 
-printGraph(createGraph(names))
+printGraph(createGraph(names)) 
